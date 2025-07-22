@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 哄睡</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>AI 哄睡故事</h1>
+        <p>选择故事长度，开始生成一个温馨的睡前故事。</p>
+        <div class="usage-tips">
+            <p><strong>使用说明：</strong></p>
+            <ol>
+                <li>选择您喜欢的故事长度</li>
+                <li>点击"生成故事"按钮，等待AI创作</li>
+                <li>故事生成完成后，选择喜欢的音色</li>
+                <li>点击"🔊 生成语音"按钮，享受AI朗读</li>
+            </ol>
+        </div>
+
+        <div class="length-selector">
+            <label>故事长度：</label>
+            <div class="radio-group">
+                <label class="radio-option">
+                    <input type="radio" name="storyLength" value="short" checked>
+                    <span>短篇（约3000字）</span>
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="storyLength" value="medium">
+                    <span>中篇（约5000字）</span>
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="storyLength" value="long">
+                    <span>长篇（约8000字以上）</span>
+                </label>
+            </div>
+        </div>
+
+        <button id="playButton">生成故事</button>
+        <div id="loading" class="hidden">正在生成故事中，请耐心等待...</div>
+
+        <!-- TTS Controls -->
+        <div id="ttsControls" class="hidden">
+            <div class="voice-selector">
+                <label>选择音色：</label>
+                <select id="voiceSelect">
+                    <option value="Cherry">Cherry - 温柔女声</option>
+                    <option value="Serena">Serena - 优雅女声</option>
+                    <option value="Chelsie">Chelsie - 甜美女声</option>
+                    <option value="Ethan">Ethan - 温和男声</option>
+                </select>
+            </div>
+            <button id="generateAudioButton">🔊 生成语音</button>
+            <button id="stopAudioButton" class="hidden">⏹️ 停止播放</button>
+            <div id="audioLoading" class="hidden">正在生成语音，请稍候...</div>
+            <div id="streamingProgress" class="hidden">
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+                <div id="progressText">准备中...</div>
+            </div>
+        </div>
+
+        <audio id="audioPlayer" controls class="hidden"></audio>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
